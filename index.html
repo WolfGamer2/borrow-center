@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Shop</title>
+    <title>Tech Borrowing Platform</title>
     <style>
         /* General Styles */
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #f9d423, #ff4e50);
+            background: #f5f5f5;
             margin: 0;
             padding: 0;
             color: #333;
@@ -16,192 +16,206 @@
 
         h1 {
             text-align: center;
-            color: #fff;
-            font-size: 3rem;
+            color: #444;
             margin-top: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background-color: #4a90e2;
+            padding: 10px 20px;
+            color: #fff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
         }
 
         .container {
-            width: 90%;
+            width: 80%;
             margin: 0 auto;
         }
 
-        /* Balance section */
-        .balance {
+        /* Profile Section */
+        .profile {
             text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
+            margin: 30px 0;
         }
 
-        .balance p {
-            font-size: 1.5rem;
-            color: #444;
+        .profile h2 {
+            font-size: 2rem;
         }
 
-        /* Shop categories */
-        .shop-categories {
+        .profile p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* Tech Categories */
+        .tech-categories {
             display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .shop-categories button {
-            background-color: #fff;
-            color: #ff4e50;
-            border: 2px solid #ff4e50;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .shop-categories button:hover {
-            background-color: #ff4e50;
-            color: #fff;
-        }
-
-        /* Shop Items */
-        .shop-items {
-            display: flex;
-            flex-wrap: wrap;
             justify-content: space-around;
+            margin: 30px 0;
         }
 
-        .item {
+        .category {
             background-color: #fff;
-            width: 250px;
+            width: 200px;
             padding: 20px;
-            border-radius: 12px;
-            margin: 20px;
+            border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s;
         }
 
-        .item:hover {
+        .category:hover {
             transform: scale(1.05);
         }
 
-        .item img {
-            width: 100%;
-            border-radius: 8px;
+        .category img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
         }
 
-        .item h3 {
-            color: #333;
-            font-size: 1.25rem;
-            margin: 15px 0 10px;
+        .category h3 {
+            margin-bottom: 10px;
         }
 
-        .item p {
+        .category p {
             color: #777;
         }
 
-        .item button {
-            background-color: #ff4e50;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
+        /* Checkout Form */
+        .checkout {
+            text-align: center;
+            margin-top: 50px;
         }
 
-        .item button:hover {
-            background-color: #f9d423;
+        .checkout h2 {
             color: #333;
         }
 
-        /* Responsive Design */
-        @media only screen and (max-width: 768px) {
-            .shop-items {
-                flex-direction: column;
-                align-items: center;
-            }
+        .checkout form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
+
+        .checkout form input, .checkout form select, .checkout form button {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .checkout form button {
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .checkout form button:hover {
+            background-color: #357ABD;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #4a90e2;
+            color: #fff;
+            margin-top: 50px;
+        }
+
     </style>
 </head>
 <body>
 
-    <h1>Modern Shop</h1>
+    <nav>
+        <div><a href="#">Tech Borrowing Platform</a></div>
+        <div><a href="#">Login with Slack</a></div>
+    </nav>
 
     <div class="container">
-        <!-- Balance Section -->
-        <div class="balance">
-            <p>Your current balance: <strong>$100</strong></p>
+
+        <!-- Profile Section -->
+        <div class="profile">
+            <h2>Welcome, [User's Name]</h2>
+            <p>Country: [User's Country]</p>
+            <p>Trust Points: <strong>150</strong></p>
+            <p>Unlock higher-level tech items as you gain more trust points.</p>
         </div>
 
-        <!-- Shop Categories -->
-        <div class="shop-categories">
-            <button onclick="filterItems('all')">All</button>
-            <button onclick="filterItems('tech')">Tech</button>
-            <button onclick="filterItems('fashion')">Fashion</button>
-            <button onclick="filterItems('home')">Home</button>
+        <!-- Tech Categories -->
+        <div class="tech-categories">
+            <div class="category" data-unlock="50">
+                <img src="https://via.placeholder.com/100" alt="Arduino">
+                <h3>Arduino Kit</h3>
+                <p>Free for new users</p>
+            </div>
+
+            <div class="category" data-unlock="100">
+                <img src="https://via.placeholder.com/100" alt="Raspberry Pi">
+                <h3>Raspberry Pi</h3>
+                <p>Requires 100 trust points</p>
+            </div>
+
+            <div class="category" data-unlock="200">
+                <img src="https://via.placeholder.com/100" alt="Robotics Kit">
+                <h3>Robotics Kit</h3>
+                <p>Requires 200 trust points</p>
+            </div>
         </div>
 
-        <!-- Shop Items -->
-        <div class="shop-items" id="shop-items">
-            <!-- Item 1 -->
-            <div class="item" data-category="tech">
-                <img src="https://via.placeholder.com/250x150" alt="Item 1">
-                <h3>Smartphone</h3>
-                <p>$499</p>
-                <button>Add to Cart</button>
-            </div>
-            <!-- Item 2 -->
-            <div class="item" data-category="fashion">
-                <img src="https://via.placeholder.com/250x150" alt="Item 2">
-                <h3>Jacket</h3>
-                <p>$79</p>
-                <button>Add to Cart</button>
-            </div>
-            <!-- Item 3 -->
-            <div class="item" data-category="home">
-                <img src="https://via.placeholder.com/250x150" alt="Item 3">
-                <h3>Table Lamp</h3>
-                <p>$35</p>
-                <button>Add to Cart</button>
-            </div>
-            <!-- Item 4 -->
-            <div class="item" data-category="tech">
-                <img src="https://via.placeholder.com/250x150" alt="Item 4">
-                <h3>Wireless Earbuds</h3>
-                <p>$99</p>
-                <button>Add to Cart</button>
-            </div>
-            <!-- Item 5 -->
-            <div class="item" data-category="fashion">
-                <img src="https://via.placeholder.com/250x150" alt="Item 5">
-                <h3>Sneakers</h3>
-                <p>$120</p>
-                <button>Add to Cart</button>
-            </div>
-            <!-- Item 6 -->
-            <div class="item" data-category="home">
-                <img src="https://via.placeholder.com/250x150" alt="Item 6">
-                <h3>Coffee Maker</h3>
-                <p>$49</p>
-                <button>Add to Cart</button>
-            </div>
+        <!-- Checkout Form -->
+        <div class="checkout">
+            <h2>Borrow Tech</h2>
+            <form id="checkout-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="text" placeholder="Country" required>
+                <select required>
+                    <option value="">Select Item to Borrow</option>
+                    <option value="Arduino Kit">Arduino Kit</option>
+                    <option value="Raspberry Pi">Raspberry Pi</option>
+                    <option value="Robotics Kit">Robotics Kit</option>
+                </select>
+                <button type="submit">Request to Borrow</button>
+            </form>
         </div>
+
     </div>
 
+    <footer>
+        <p>Tech Borrowing Platform - Empowering Makers Everywhere</p>
+    </footer>
+
     <script>
-        function filterItems(category) {
-            const items = document.querySelectorAll('.item');
-            items.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+        // Simulate Slack OAuth
+        function simulateOAuth() {
+            // Here you'd implement the actual OAuth flow
+            alert("Simulating Slack OAuth login!");
         }
+
+        // Simulate form submission
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("Your request to borrow has been submitted!");
+        });
     </script>
 
 </body>
