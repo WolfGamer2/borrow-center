@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Borrowing Platform</title>
+</head>
+<body>
+    <h1>Welcome to the Tech Borrowing Platform</h1>
+    <div id="tech-list"></div>
+
+    <script>
+        async function fetchProducts() {
+            const response = await fetch('/api/products'); // API to get country-filtered products
+            const products = await response.json();
+            const techList = document.getElementById('tech-list');
+
+            products.forEach(product => {
+                techList.innerHTML += `
+                    <div class="product">
+                        <h2>${product['Item Name']}</h2>
+                        <p>${product['Description']}</p>
+                        <button onclick="borrowItem('${product['ID']}')">Borrow</button>
+                    </div>
+                `;
+            });
+        }
+
+        async function borrowItem(itemId) {
+            const response = await fetch(`/api/borrow/${itemId}`, { method: 'POST' });
+            if (response.ok) {
+                alert('Borrow request submitted!');
+            }
+        }
+
+        fetchProducts();
+    </script>
+</body>
+</html>
