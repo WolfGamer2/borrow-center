@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Shop</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #f9d423, #ff4e50);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 3rem;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        /* Balance section */
+        .balance {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        .balance p {
+            font-size: 1.5rem;
+            color: #444;
+        }
+
+        /* Shop categories */
+        .shop-categories {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .shop-categories button {
+            background-color: #fff;
+            color: #ff4e50;
+            border: 2px solid #ff4e50;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .shop-categories button:hover {
+            background-color: #ff4e50;
+            color: #fff;
+        }
+
+        /* Shop Items */
+        .shop-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .item {
+            background-color: #fff;
+            width: 250px;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .item:hover {
+            transform: scale(1.05);
+        }
+
+        .item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .item h3 {
+            color: #333;
+            font-size: 1.25rem;
+            margin: 15px 0 10px;
+        }
+
+        .item p {
+            color: #777;
+        }
+
+        .item button {
+            background-color: #ff4e50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .item button:hover {
+            background-color: #f9d423;
+            color: #333;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 768px) {
+            .shop-items {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Modern Shop</h1>
+
+    <div class="container">
+        <!-- Balance Section -->
+        <div class="balance">
+            <p>Your current balance: <strong>$100</strong></p>
+        </div>
+
+        <!-- Shop Categories -->
+        <div class="shop-categories">
+            <button onclick="filterItems('all')">All</button>
+            <button onclick="filterItems('tech')">Tech</button>
+            <button onclick="filterItems('fashion')">Fashion</button>
+            <button onclick="filterItems('home')">Home</button>
+        </div>
+
+        <!-- Shop Items -->
+        <div class="shop-items" id="shop-items">
+            <!-- Item 1 -->
+            <div class="item" data-category="tech">
+                <img src="https://via.placeholder.com/250x150" alt="Item 1">
+                <h3>Smartphone</h3>
+                <p>$499</p>
+                <button>Add to Cart</button>
+            </div>
+            <!-- Item 2 -->
+            <div class="item" data-category="fashion">
+                <img src="https://via.placeholder.com/250x150" alt="Item 2">
+                <h3>Jacket</h3>
+                <p>$79</p>
+                <button>Add to Cart</button>
+            </div>
+            <!-- Item 3 -->
+            <div class="item" data-category="home">
+                <img src="https://via.placeholder.com/250x150" alt="Item 3">
+                <h3>Table Lamp</h3>
+                <p>$35</p>
+                <button>Add to Cart</button>
+            </div>
+            <!-- Item 4 -->
+            <div class="item" data-category="tech">
+                <img src="https://via.placeholder.com/250x150" alt="Item 4">
+                <h3>Wireless Earbuds</h3>
+                <p>$99</p>
+                <button>Add to Cart</button>
+            </div>
+            <!-- Item 5 -->
+            <div class="item" data-category="fashion">
+                <img src="https://via.placeholder.com/250x150" alt="Item 5">
+                <h3>Sneakers</h3>
+                <p>$120</p>
+                <button>Add to Cart</button>
+            </div>
+            <!-- Item 6 -->
+            <div class="item" data-category="home">
+                <img src="https://via.placeholder.com/250x150" alt="Item 6">
+                <h3>Coffee Maker</h3>
+                <p>$49</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterItems(category) {
+            const items = document.querySelectorAll('.item');
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
